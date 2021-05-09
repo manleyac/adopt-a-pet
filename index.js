@@ -1,7 +1,12 @@
 //module imports
 const express = require("express");
+const cors = require("cors");
+require("dotenv").config();
 
 const port = process.env.PORT || 8000;
+
+//import route handlers
+const apiRoutes = require("./server/routes/api.js");
 
 const app = express();
 
