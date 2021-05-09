@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/manleyac/adopt-a-pet#readme",
   "dependencies": {
+    "@petfinder/petfinder-js": "^1.0.6",
+    "cors": "^2.8.5",
     "express": "^4.17.1"
   }
 }
