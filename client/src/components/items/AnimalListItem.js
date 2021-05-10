@@ -1,8 +1,20 @@
 import React from "react";
 
+const listPlaceholder = "https://via.placeholder.com/100";
+
 const AnimalListItem = (props) => {
   const { name, link, pic, description } = props;
   const text = description ? description : "No description given.";
+  let imgSrc;
+  try {
+    if ("small" in pic) {
+      imgSrc = pic.small;
+    } else {
+      imgSrc = listPlaceholder;
+    }
+  } catch (err) {
+    imgSrc = listPlaceholder;
+  }
   return (
     <div
       key={name}
@@ -10,7 +22,10 @@ const AnimalListItem = (props) => {
     >
       <a target="_blank" rel="noreferrer" href={link}>
         <div className="flex self-center">
-          <img src={pic} className="w-45 rounded-md border-2 border-gray-300" />
+          <img
+            src={imgSrc}
+            className="w-45 rounded-md border-2 border-gray-300"
+          />
           <div className="w-full">
             <h2 className="text-center text-xl font-semibold mb-2">{name}</h2>
             <p className="text-center">{text}</p>

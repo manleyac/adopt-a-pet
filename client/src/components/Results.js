@@ -3,7 +3,7 @@ import AnimalListItem from "./items/AnimalListItem.js";
 import AnimalCard from "./items/AnimalCard.js";
 
 const Results = (props) => {
-  const listPlaceholder = "https://via.placeholder.com/100";
+  
   if (props.animals) {
     if (!props.view) {
       return (
@@ -11,7 +11,7 @@ const Results = (props) => {
           {props.animals.map((animal) => (
             <AnimalCard
               name={animal.name}
-              pic={animal.primary_photo_cropped.small}
+              pic={animal.primary_photo_cropped}
               gender={animal.gender}
               age={animal.age}
               description={animal.description}
@@ -31,9 +31,7 @@ const Results = (props) => {
               link={animal.url}
               description={animal.description}
               pic={
-                animal.photos[0].small
-                  ? animal.photos[0].small
-                  : listPlaceholder
+                animal.photos[0]
               }
             />
           ))}
