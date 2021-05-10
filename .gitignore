@@ -28,4 +28,3 @@ yarn-error.log*
 # Client Files
 client/node_modules
 client/coverage
-client/build
