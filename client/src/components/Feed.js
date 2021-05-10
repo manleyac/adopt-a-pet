@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { FaCaretDown } from "react-icons/fa";
 
 import Results from "./Results.js";
 import fetchAnimals from "../hooks/fetchAnimals";
@@ -10,7 +9,6 @@ const Feed = () => {
   const [loading, setLoading] = useState(false);
   const [params, setParams] = useState({ type: "", location: "" });
   const [type, setType] = useState("");
-  const [location, setLocation] = useState("");
   const [data, setData] = useState([]);
   const [view, setView] = useState(true);
   const [page, setPage] = useState(1);
@@ -33,10 +31,6 @@ const Feed = () => {
 
   function handleSelect(event) {
     setType(event.target.value);
-  }
-
-  function handleZip(event) {
-    setLocation(event.target.value);
   }
 
   function handleSearch() {
