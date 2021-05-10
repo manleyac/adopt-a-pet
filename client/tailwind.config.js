@@ -1,7 +1,7 @@
-const colors = require("tailwindcss/colors")
+const colors = require("tailwindcss/colors");
 
 module.exports = {
-  purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
+  purge: ["./src/**/*.{js,jsx,ts,tsx}", "./public/index.html"],
   theme: {
     container: {
       center: true,
@@ -11,11 +11,17 @@ module.exports = {
       sans: ["Inter var", "system-ui", "sans-serif"],
     },
     minHeight: {
-      "0": "0",
+      0: "0",
       "1/4": "25vh",
       "1/2": "50vh",
       "3/4": "75%",
       full: "100%",
+    },
+    extend: {
+      animation: {
+        bounce200: "bounce 1s infinite 200ms",
+        bounce400: "bounce 1s infinite 400ms",
+      },
     },
   },
   variants: {
@@ -26,4 +32,4 @@ module.exports = {
     purple: colors.violet,
     gray: colors.coolGray,
   },
-}
+};

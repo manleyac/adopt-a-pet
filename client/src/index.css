@@ -10,6 +10,19 @@ body {
   @apply max-w-screen-xl mx-auto px-4;
 }
 
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 @screen md {
   .container {
     @apply px-6;
