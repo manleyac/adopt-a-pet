@@ -2,7 +2,7 @@
 A webapp to search for adoptable pets!
 
 See it deployed here:
-
+https://manleywebdev-petfinder.herokuapp.com/
 
 Run the following command to start the server:
 `npm install`
