@@ -10,13 +10,15 @@ router.get("/", (req, res) => {
   res.send("API Running!");
 });
 
-router.get("/:animal/:location", (req, res) => {
+
+router.get("/:animal/:location/:page", (req, res) => {
   const animal = req.params.animal;
   const location = req.params.location;
+  const page = req.params.page;
 
   client = new pf.Client({ apiKey: API_KEY, secret: SECRET });
   client.animal
-    .search({ type: animal, location: location })
+    .search({ type: animal, location: location, page: page })
     .then((result) => res.send(result.data))
     .catch((error) => console.error(error));
 });
