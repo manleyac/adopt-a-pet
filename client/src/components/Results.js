@@ -3,13 +3,13 @@ import AnimalListItem from "./items/AnimalListItem.js";
 import AnimalCard from "./items/AnimalCard.js";
 
 const Results = (props) => {
-  
   if (props.animals) {
     if (!props.view) {
       return (
-        <div className="container grid md:grid-cols-3 gap-4">
-          {props.animals.map((animal) => (
+        <div className="container grid md:grid-cols-2 xl:grid-cols-3 gap-4">
+          {props.animals.map((animal,index) => (
             <AnimalCard
+              key={index}
               name={animal.name}
               pic={animal.primary_photo_cropped}
               gender={animal.gender}
@@ -25,14 +25,13 @@ const Results = (props) => {
     } else {
       return (
         <div className="container flex flex-col justify-center items-center">
-          {props.animals.map((animal) => (
+          {props.animals.map((animal,index) => (
             <AnimalListItem
+              key={index}
               name={animal.name}
               link={animal.url}
               description={animal.description}
-              pic={
-                animal.photos[0]
-              }
+              pic={animal.photos[0]}
             />
           ))}
         </div>

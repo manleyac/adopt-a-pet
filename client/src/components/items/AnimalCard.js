@@ -20,7 +20,7 @@ const AnimalCard = (props) => {
     <div className="m-3 bg-white border-2 border-gray-300 p-5 rounded-md">
       <a target="_blank" rel="noreferrer" href={link}>
         <div className="h-full flex flex-col justify-between">
-          <img className="w-full" src={imgSrc} />
+          <img className="w-full" src={imgSrc} alt={name} />
           <div>
             <h2 className="text-center text-xl font-semibold mb-2">{name}</h2>
             <p className="text-gray-600">{text}</p>

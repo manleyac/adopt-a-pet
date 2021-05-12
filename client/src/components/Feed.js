@@ -4,10 +4,13 @@ import Results from "./Results.js";
 import fetchAnimals from "../hooks/fetchAnimals";
 import Spinner from "./items/Spinner.js";
 import ViewToggle from "./items/ViewToggle.js";
+import checkInput from "../utilities/checkInput.js";
+import ErrorModal from "./ErrorModal.js";
 
 const Feed = () => {
   const [loading, setLoading] = useState(false);
   const [params, setParams] = useState({ type: "", location: "" });
+  const [error, setError] = useState({ show: false, message: "" });
   const [type, setType] = useState("");
   const [data, setData] = useState([]);
   const [view, setView] = useState(true);
@@ -35,7 +38,10 @@ const Feed = () => {
 
   function handleSearch() {
     let zip = ref.current.value;
-    setParams({ type: type, location: zip });
+    setError(checkInput(type, zip));
+    if (!error.show) {
+      setParams({ type: type, location: zip });
+    }
   }
 
   function prevPage() {
@@ -48,6 +54,10 @@ const Feed = () => {
     if (page < data.pagination.total_pages) {
       setPage(page + 1);
     }
+  }
+
+  function closeModal() {
+    setError({ show: false, message: "" });
   }
 
   const TypeSelector = () => {
@@ -80,7 +90,7 @@ const Feed = () => {
             <input
               key={2}
               ref={ref}
-              className="border border-gray-300 mx-4 rounded-md text-gray-600 h-10 px-5 bg-white"
+              className="border border-gray-300 mr-1 lg:mx-4 rounded-md text-gray-600 h-10 px-5 my-1 bg-white"
               id="zip"
               type="text"
               placeholder="Enter Zipcode"
@@ -121,6 +131,9 @@ const Feed = () => {
     <div>
       <ControlBar ref={ref} />
       <div className="flex justify-between py-2 px-4">
+        {error.show && (
+          <ErrorModal onClick={closeModal} message={error.message} />
+        )}
         <div>
           {data.pagination && (
             <p>{`Results: ${data.pagination.total_count} Page: ${data.pagination.current_page} of ${data.pagination.total_pages}`}</p>

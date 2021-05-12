@@ -16,16 +16,17 @@ const AnimalListItem = (props) => {
     imgSrc = listPlaceholder;
   }
   return (
-    <div
-      key={name}
-      className="my-2 w-full lg:max-w-3xl bg-white border-2 border-gray-300 p-5 rounded-md tracking-wide shadow-lg justify-center"
-    >
+    <div className="my-2 w-full lg:max-w-3xl bg-white border-2 border-gray-300 p-5 rounded-md tracking-wide shadow-lg justify-center">
       <a target="_blank" rel="noreferrer" href={link}>
-        <div className="flex self-center">
-          <img
-            src={imgSrc}
-            className="w-45 rounded-md border-2 border-gray-300"
-          />
+        <div className="flex">
+          <div className="flex flex-initial items-center">
+            <img
+              src={imgSrc}
+              className="rounded-md border-2 border-gray-300"
+              alt={name}
+            />
+          </div>
+
           <div className="w-full">
             <h2 className="text-center text-xl font-semibold mb-2">{name}</h2>
             <p className="text-center">{text}</p>
